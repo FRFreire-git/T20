@@ -23,6 +23,9 @@ export default class TbDefesa extends BaseModel {
   @column()
   public penalidade_defesa: string
 
+  @column()
+  public preco_defesa: number
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

@@ -79,7 +79,7 @@ export default class DefesasController {
     }
   }
 
-  public async atualizar({ request, params, response }: HttpContextContract) {
+  public async editar({ request, params, response }: HttpContextContract) {
     try {
       const payload = await request.validate(this.validators.editar())
       const id = params.id
@@ -99,7 +99,7 @@ export default class DefesasController {
     }
   }
 
-  public async apagar({ response, params }: HttpContextContract) {
+  public async deletar({ response, params }: HttpContextContract) {
     try {
       let defesa: Defesa | null
 

@@ -13,7 +13,7 @@ export default class extends BaseSchema {
       table.integer('preco_arma')
       table.string('dano_arma', 50)
       table.string('critico_arma', 50)
-      table.string('alcance_arma', 10)
+      table.string('alcance_arma', 20)
       table.integer('peso_arma')
       table.string('tipo_ataque', 50)
       table.string('tipo_arma', 50)

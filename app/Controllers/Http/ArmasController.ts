@@ -51,4 +51,67 @@ export default class ArmasController {
       return error
     }
   }
+
+  public async cadastrar({ request, response }: HttpContextContract) {
+    try {
+      const payload = await request.validate(this.validators.cadastrar())
+      let arma: Arma = new Arma()
+
+      arma.nome_arma = payload.nome_arma.toUpperCase()
+      arma.descricao_arma = payload.descricao_arma.toUpperCase()
+      arma.municao_arma = payload.municao_arma
+      arma.habilidade_arma = payload.habilidade_arma.toUpperCase()
+      arma.preco_arma = payload.preco_arma
+      arma.dano_arma = payload.dano_arma
+      arma.critico_arma = payload.critico_arma
+      arma.alcance_arma = payload.alcance_arma.toUpperCase()
+      arma.peso_arma = payload.peso_arma
+      arma.tipo_ataque = payload.tipo_ataque.toUpperCase()
+      arma.tipo_arma = payload.tipo_arma.toUpperCase()
+      arma.qt_mao = payload.qt_mao
+      await arma.save()
+
+      return this.customResponse.sucesso(response, 'Item cadastrado com sucesso!', arma)
+    } catch (error) {
+      return this.customResponse.erro(response, 'Houve um erro ao cadastrar o item!', error, 500)
+    }
+  }
+
+  public async editar({ request, params, response }: HttpContextContract) {
+    try {
+      const payload = await request.validate(this.validators.editar())
+      const id = params.id
+      let arma = await Arma.findOrFail(id)
+
+      if (!arma) {
+        return this.customResponse.erro(response, 'Item não encontrado!', 400)
+      }
+
+      arma.merge(payload)
+
+      await arma.save()
+
+      return this.customResponse.sucesso(response, 'Item editado com sucesso!', arma)
+    } catch (error) {
+      return this.customResponse.erro(response, 'Houve um erro ao editar o item!', error, 500)
+    }
+  }
+
+  public async deletar({ response, params }: HttpContextContract) {
+    try {
+      let arma: Arma | null
+
+      arma = await Arma.findOrFail(params.id)
+
+      if (!arma) {
+        return this.customResponse.erro(response, 'Item não encontrado!', 400)
+      }
+
+      await arma.delete()
+
+      return this.customResponse.sucesso(response, 'Item excluido com sucesso!', arma)
+    } catch (error) {
+      return this.customResponse.erro(response, 'Houve um erro ao excluir o item!', error, 500)
+    }
+  }
 }

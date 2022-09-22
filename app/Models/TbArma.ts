@@ -39,7 +39,7 @@ export default class TbArma extends BaseModel {
   public tipo_arma: string
 
   @column()
-  public qt_mao: string
+  public qt_mao: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

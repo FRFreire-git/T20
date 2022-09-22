@@ -12,6 +12,7 @@ export default class extends BaseSchema {
       table.string('peso_defesa', 50)
       table.integer('bonus_ca')
       table.string('penalidade_defesa', 500)
+      table.integer('preco_defesa')
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })

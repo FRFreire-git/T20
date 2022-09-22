@@ -24,12 +24,8 @@ export default class ArmaValidator {
   }
 
   public editar() {
-    const messages: Object = {
-      required: 'O {{field}} é obrigatório!',
-    }
-
     const postSchema = schema.create({
-      nome_arma: schema.string({ trim: true }, [rules.required(), rules.maxLength(50)]),
+      nome_arma: schema.string({ trim: true }, [rules.maxLength(50)]),
       descricao_arma: schema.string({ trim: true }, [rules.maxLength(1000)]),
       municao_arma: schema.number(),
       habilidade_arma: schema.string({ trim: true }, [rules.maxLength(1000)]),
@@ -42,6 +38,6 @@ export default class ArmaValidator {
       tipo_arma: schema.string({ trim: true }, [rules.maxLength(50)]),
       qt_mao: schema.number(),
     })
-    return { schema: postSchema, messages }
+    return { schema: postSchema }
   }
 }
