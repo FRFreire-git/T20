@@ -18,4 +18,11 @@ Route.group(() => {
   Route.post('arma', 'ArmasController.cadastrar')
   Route.put('arma/:id', 'ArmasController.editar')
   Route.delete('arma/:id', 'ArmasController.deletar')
+
+  //Background
+  Route.get('background', 'BackgroundsController.listar')
+  Route.get('background/:id?', 'BackgroundsController.listar')
+  Route.post('background', 'BackgroundsController.cadastrar')
+  Route.put('background/:id', 'BackgroundsController.editar')
+  Route.delete('background/:id', 'BackgroundsController.deletar')
 }).prefix('api/')
