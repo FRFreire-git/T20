@@ -1,5 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Arma from 'App/Models/TbArma'
+import Arma from 'App/Models/Arma'
 import Validators from 'App/Validators/ArmaValidator'
 import CustomResponse from 'App/Utils/CustomResponse'
 

@@ -1,5 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-import Background from 'App/Models/TbBackground'
+import Background from 'App/Models/Background'
 import Validators from 'App/Validators/BackgroundValidator'
 import CustomResponse from 'App/Utils/CustomResponse'
 
