@@ -5,7 +5,7 @@ export default class extends BaseSchema {
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id_jogador')
+      table.uuid('id_jogador', {primaryKey: true})
       table.string('nome_personagem', 100)
       table.string('nome_jogador', 100)
       table.integer('nivel_jogador')
@@ -18,8 +18,7 @@ export default class extends BaseSchema {
       table.integer('ponto_xp')
       table.string('foto_jogador', 1000)
       table.integer('valor_total')
-      table.timestamp('created_at', { useTz: true })
-      table.timestamp('updated_at', { useTz: true })
+      table.timestamps(true, true)
     })
   }
 

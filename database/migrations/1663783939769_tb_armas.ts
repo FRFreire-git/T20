@@ -5,7 +5,7 @@ export default class extends BaseSchema {
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id_arma')
+      table.uuid('id_arma', {primaryKey: true})
       table.string('nome_arma', 100).notNullable()
       table.string('descricao_arma', 1000)
       table.integer('municao_arma')
@@ -18,8 +18,7 @@ export default class extends BaseSchema {
       table.string('tipo_ataque', 50)
       table.string('tipo_arma', 50)
       table.integer('qt_mao')
-      table.timestamp('created_at', { useTz: true })
-      table.timestamp('updated_at', { useTz: true })
+      table.timestamps(true, true)
     })
   }
 

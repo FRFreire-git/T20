@@ -71,6 +71,7 @@ export default class DefesasController {
       defesa.peso_defesa = payload.peso_defesa
       defesa.bonus_ca = payload.bonus_ca
       defesa.penalidade_defesa = payload.penalidade_defesa
+      defesa.preco_defesa = payload.preco_defesa
       await defesa.save()
 
       return this.customResponse.sucesso(response, 'Item cadastrado com sucesso!', defesa)
